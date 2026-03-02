@@ -1,0 +1,95 @@
+/* --- 1. DESIGN TOKENS (Переменные) --- */
+:root {
+  /* Основная палитра (Tokyo Night Style) */
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  /* Акценты и статусы */
+  --primary: #38bdf8;
+  --primary-hover: #0ea5e9;
+  --accent: #818cf8;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --warning: #f59e0b;
+
+  /* Геометрия и анимация */
+  --radius: 8px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --container-width: 1200px;
+
+  /* Типографика */
+  --font-family: 'JetBrains Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+}
+
+/* --- 2. RESET & BASE (Сброс и база) --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent; /* Убирает синий блик на моб. устройствах */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Инструменты для работы с контентом */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Сброс стилей для ссылок */
+a {
+  text-decoration: none; /* Удаляем подчеркивание */
+  color: inherit; /* Ссылка берет цвет у родительского текста */
+  cursor: pointer; /* Всегда показываем "палец" */
+}
+
+/* Сброс стилей для кнопок (Reset Button) */
+button {
+  background: none; /* Убираем дефолтный серый фон */
+  border: none; /* Убираем рамку */
+  padding: 0; /* Сбрасываем внутренние отступы */
+  font: inherit; /* Наследуем шрифт от родителя */
+  cursor: pointer; /* Указатель при наведении */
+  outline: inherit; /* Наследуем логику фокуса */
+}
+
+/* Состояния для интерактивности — база для Junior+ */
+a:hover,
+button:hover {
+  filter: brightness(0.8); /* Легкое затемнение при наведении */
+  transition: filter 0.2s ease;
+}
+
+button:disabled {
+  cursor: not-allowed; /* Показываем, что нажать нельзя */
+  opacity: 0.5; /* Визуально "гасим" кнопку */
+}
