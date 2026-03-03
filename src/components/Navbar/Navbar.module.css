@@ -1,0 +1,27 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  height: 80px;
+  border-bottom: 1px solid #333;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: 300ms;
+}
+
+.active {
+  color: #646cff;
+  font-weight: bold;
+}
