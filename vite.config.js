@@ -1,7 +1,7 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
-import { fileURLToPath } from "url";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Исправляем возможную ошибку с __dirname в ES-модулях
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -16,7 +16,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
   // Настройка CSS (полезно для будущего)
@@ -24,7 +24,12 @@ export default defineConfig({
     devSourcemap: true, // Показывает в инспекторе браузера точное место в твоем .module.css
   },
   build: {
-    outDir: "dist", // Папка для готового проекта (стандарт)
+    outDir: 'dist', // Папка для готового проекта (стандарт)
     sourcemap: false, // Отключаем карты кода в билде для экономии веса
+  },
+  test: {
+    global: true, // Позволяет не импортировать "describe" в каждом файле
+    environment: 'jsdom', // Эмуляция среды браузера
+    setUpFiles: './src/tests/setup.js', // Файл с нач. настройками
   },
 });
