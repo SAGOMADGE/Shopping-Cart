@@ -23,14 +23,14 @@ const Navbar = () => {
             Shop
           </NavLink>
         </li>
-        <div className={styles.cartIcon}>
+        <li className={styles.cartIcon}>
           <NavLink
             to="/cart"
             className={({ isActive }) => (isActive ? styles.active : '')}
           >
             Cart (0)
           </NavLink>
-        </div>
+        </li>
       </ul>
     </nav>
   );

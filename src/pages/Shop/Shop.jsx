@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getAllProducts } from '@/api/products'; // Проверь путь к api
+import ProductCard from '@/pages/Shop/components/ProductCard';
 import styles from './Shop.module.css';
 
 const Shop = () => {
@@ -44,13 +45,9 @@ const Shop = () => {
     <div className={styles.shopContainer}>
       <h1>Наш ассортимент</h1>
       <div className={styles.productsGrid}>
+        {/* Прохожусь по массиву products , возвращаю одну карточку товара и передаю каждой ProductCard обьект product для последующего ее использования */}
         {products.map((product) => (
-          <div key={product.id} className={styles.card}>
-            <img src={product.image} alt={product.title} />
-            <h3>{product.title}</h3>
-            <p>{product.price} $</p>
-            <button>Add to Cart</button>
-          </div>
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
