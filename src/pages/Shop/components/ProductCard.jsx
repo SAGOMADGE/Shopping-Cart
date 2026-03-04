@@ -1,5 +1,16 @@
 import styles from './ProductCard.module.css';
 
+/**
+ * Карточка товара для страницы магазина.
+/**
+ * @param {Object} props
+ * @param {Object} props.product - Объект товара
+ * @param {string} props.product.title - Название
+ * @param {number} props.product.price - Цена
+ * @param {string} props.product.image - Изображение
+ * @param {string} props.product.category - Категория
+ */
+
 const ProductCard = ({ product }) => {
   if (!product) return null;
 

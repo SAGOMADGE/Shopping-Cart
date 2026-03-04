@@ -28,8 +28,8 @@ export default defineConfig({
     sourcemap: false, // Отключаем карты кода в билде для экономии веса
   },
   test: {
-    global: true, // Позволяет не импортировать "describe" в каждом файле
+    globals: true, // Позволяет не импортировать "describe" в каждом файле
     environment: 'jsdom', // Эмуляция среды браузера
-    setUpFiles: './src/tests/setup.js', // Файл с нач. настройками
+    setupFiles: './src/tests/setup.js', // Файл с нач. настройками
   },
 });
