@@ -16,14 +16,20 @@ describe('ProductCard component', () => {
     render(<ProductCard product={mockProduct} />);
 
     // 2. Ищем заголовок на экране
-    expect(screen.getByText('Test Laptop')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Test Laptop' })
+    ).toBeInTheDocument();
 
     // 3. Ищем цену (используем рег выражение, чтобы найти подстроку)
-    expect(screen.getByText(/999.99/)).toBeInTheDocument();
+    expect(screen.getByText('$999.99')).toBeInTheDocument();
 
     // 4. Проверяем картинку по ee alt-тексту
     const image = screen.getByAltText('Test Laptop');
     expect(image).toBeInTheDocument();
     expect(image).toHaveAttribute('src', mockProduct.image);
+    // 5. Проверяем, что кнопка просто существует в DOM
+    expect(
+      screen.getByRole('button', { name: /add to cart/i })
+    ).toBeInTheDocument();
   });
 });
