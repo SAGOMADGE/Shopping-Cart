@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className={styles.footer}>
-        <span className={styles.price}>{Number(price).toFixed(2)}</span>
+        <span className={styles.price}>${Number(price).toFixed(2)}</span>
         <button className={styles.addBtn}>Add to Cart</button>
       </div>
     </article>
