@@ -13,9 +13,9 @@ import styles from './ProductCard.module.css';
  */
 
 const ProductCard = ({ product }) => {
-  if (!product) return null;
-
   const { addToCart } = useCart(); // - вытаскиваем ф-ию с контекста
+
+  if (!product) return null;
 
   const { title, price, image, category } = product;
 
