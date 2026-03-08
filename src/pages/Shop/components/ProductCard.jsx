@@ -1,3 +1,4 @@
+import { useCart } from '@/context/CartContext';
 import styles from './ProductCard.module.css';
 
 /**
@@ -14,6 +15,8 @@ import styles from './ProductCard.module.css';
 const ProductCard = ({ product }) => {
   if (!product) return null;
 
+  const { addToCart } = useCart(); // - вытаскиваем ф-ию с контекста
+
   const { title, price, image, category } = product;
 
   return (
@@ -29,7 +32,9 @@ const ProductCard = ({ product }) => {
 
       <div className={styles.footer}>
         <span className={styles.price}>${Number(price).toFixed(2)}</span>
-        <button className={styles.addBtn}>Add to Cart</button>
+        <button className={styles.addBtn} onClick={() => addToCart(product)}>
+          Добавить в корзину
+        </button>
       </div>
     </article>
   );
