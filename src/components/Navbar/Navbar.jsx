@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import { useCart } from '@/context/CartContext';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
+  const { totalItems } = useCart();
+
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>Fake Store</div>
@@ -28,7 +31,7 @@ const Navbar = () => {
             to="/cart"
             className={({ isActive }) => (isActive ? styles.active : '')}
           >
-            Cart (0)
+            Cart ({totalItems})
           </NavLink>
         </li>
       </ul>
