@@ -1,0 +1,26 @@
+.cartItem {
+  margin-top: 10px;
+  color: #999;
+}
+
+.cartItemTitle {
+  font-weight: bold;
+  color: #fff;
+}
+
+button {
+  display: block;
+}
+
+.cartTotal {
+  margin-top: 10px;
+}
+
+.cartItem > * button {
+  color: #fff;
+}
+
+.clearCartBtn {
+  color: #fff;
+  margin-top: 10px;
+}
