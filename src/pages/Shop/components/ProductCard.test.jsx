@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import ProductCard from './ProductCard';
+import { CartProvider } from '@/context/CartContext';
 
 describe('ProductCard component', () => {
   // Создаем фейковые данные товара для теста
@@ -11,9 +12,12 @@ describe('ProductCard component', () => {
     category: 'electronics',
   };
 
+  // wrapper
+  const wrapper = ({ children }) => <CartProvider>{children}</CartProvider>;
+
   it('должен правильно отображать данные продукта', () => {
     // 1. Рендерим карточку
-    render(<ProductCard product={mockProduct} />);
+    render(<ProductCard product={mockProduct} />, { wrapper }); // оборачиваем контекст в wrapper
 
     // 2. Ищем заголовок на экране
     expect(

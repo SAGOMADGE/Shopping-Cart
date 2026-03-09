@@ -6,6 +6,10 @@ const Cart = () => {
   const { cartItems, totalPrice, removeFromCart, updateQuantity, clearCart } =
     useCart();
 
+  if (cartItems.length === 0) {
+    return <p>Коризна пуста</p>;
+  }
+
   return (
     <div>
       {cartItems.map((item) => (
