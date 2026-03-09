@@ -29,7 +29,7 @@ describe('ProductCard component', () => {
     expect(image).toHaveAttribute('src', mockProduct.image);
     // 5. Проверяем, что кнопка просто существует в DOM
     expect(
-      screen.getByRole('button', { name: /add to cart/i })
+      screen.getByRole('button', { name: /добавить в корзину/i })
     ).toBeInTheDocument();
   });
 });
