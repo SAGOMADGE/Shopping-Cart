@@ -1,4 +1,14 @@
 /* Shop.module.css */
+.shopContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.shopTitle {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
 
 .productsGrid {
   display: grid;

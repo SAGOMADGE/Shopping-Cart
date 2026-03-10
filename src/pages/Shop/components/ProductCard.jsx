@@ -27,9 +27,7 @@ const ProductCard = ({ product }) => {
         <img src={image} alt={title} className={styles.image} />
       </div>
 
-      <div className={styles.content}>
-        <h3 className={styles.title}>{title}</h3>
-      </div>
+      <h3 className={styles.title}>{title}</h3>
 
       <div className={styles.footer}>
         <span className={styles.price}>${Number(price).toFixed(2)}</span>

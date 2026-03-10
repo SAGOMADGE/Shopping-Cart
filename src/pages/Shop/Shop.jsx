@@ -38,7 +38,7 @@ const Shop = () => {
 
   return (
     <div className={styles.shopContainer}>
-      <h1>Наш ассортимент</h1>
+      <h1 className={styles.shopTitle}>Наш ассортимент</h1>
       <div className={styles.productsGrid}>
         {/* Прохожусь по массиву products , возвращаю одну карточку товара и передаю каждой ProductCard обьект product для последующего ее использования */}
         {products.map((product) => (
