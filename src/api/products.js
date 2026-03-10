@@ -5,9 +5,9 @@ const BASE_URL = 'https://fakestoreapi.com';
  * @returns {Promise<Array>} Массив объектов товара
  */
 
-export const getAllProducts = async () => {
+export const getAllProducts = async (signal) => {
   try {
-    const response = await fetch(`${BASE_URL}/products`);
+    const response = await fetch(`${BASE_URL}/products`, { signal });
 
     if (!response.ok) {
       throw new Error(`Ошибка сервера: ${response.status}`);

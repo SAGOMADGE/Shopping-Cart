@@ -7,7 +7,7 @@ const Cart = () => {
     useCart();
 
   if (cartItems.length === 0) {
-    return <p>Коризна пуста</p>;
+    return <p>Корзина пуста</p>;
   }
 
   return (

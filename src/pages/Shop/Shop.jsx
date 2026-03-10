@@ -9,23 +9,18 @@ const Shop = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let ignore = false; // Простой способ избежать проблем с гонкой данных (race conditions)
+    const controller = new AbortController();
 
     const fetchItems = async () => {
       try {
         setLoading(true);
-        const data = await getAllProducts();
-        if (!ignore) {
-          setProducts(data);
-        }
+        const data = await getAllProducts(controller.signal);
+        setProducts(data);
       } catch (err) {
-        if (!ignore) {
-          setError(err.message);
-        }
+        if (err.name === 'AbortError') return;
+        setError(err.message);
       } finally {
-        if (!ignore) {
-          setLoading(false);
-        }
+        setLoading(false);
       }
     };
 
@@ -33,7 +28,7 @@ const Shop = () => {
 
     // Функция очистки (cleanup)
     return () => {
-      ignore = true;
+      controller.abort(); // размонтирование -> отменяем
     };
   }, []);
 

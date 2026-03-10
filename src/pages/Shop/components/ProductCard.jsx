@@ -3,7 +3,6 @@ import styles from './ProductCard.module.css';
 
 /**
  * Карточка товара для страницы магазина.
-/**
  * @param {Object} props
  * @param {Object} props.product - Объект товара
  * @param {string} props.product.title - Название
@@ -35,7 +34,11 @@ const ProductCard = ({ product }) => {
 
       <div className={styles.footer}>
         <span className={styles.price}>${Number(price).toFixed(2)}</span>
-        <button className={styles.addBtn} onClick={() => addToCart(product)}>
+        <button
+          disabled={isInCart}
+          className={styles.addBtn}
+          onClick={() => addToCart(product)}
+        >
           {isInCart ? 'В корзине ✓' : 'Добавить в корзину'}
         </button>
       </div>
