@@ -1,24 +1,28 @@
 .nav {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  align-items: center;
+  padding: 0 var(--space-xl);
   height: 80px;
   border-bottom: 1px solid #333;
-  background-color: #1a1a1a;
+  background-color: var(--nav-bg);
   color: white;
+}
+
+.logo {
+  font-size: var(--fs-base);
+  color: var(--text-accent);
+  font-family: var(--font-accent);
 }
 
 .menu {
   display: flex;
-  gap: 2rem;
+  gap: var(--space-md);
   list-style: none;
 }
 
-.link {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: 300ms;
+.menuLink {
+  color: var(--text-muted);
 }
 
 .active {

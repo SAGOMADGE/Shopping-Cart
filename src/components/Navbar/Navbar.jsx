@@ -7,9 +7,9 @@ const Navbar = () => {
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.logo}>Fake Store</div>
+      <div className={styles.logo}>SAGOMADGE</div>
       <ul className={styles.menu}>
-        <li>
+        <li className={styles.menuLink}>
           <NavLink
             to="/"
             end
@@ -18,7 +18,7 @@ const Navbar = () => {
             Home
           </NavLink>
         </li>
-        <li>
+        <li className={styles.menuLink}>
           <NavLink
             to="/shop"
             className={({ isActive }) => (isActive ? styles.active : '')}
@@ -26,7 +26,7 @@ const Navbar = () => {
             Shop
           </NavLink>
         </li>
-        <li className={styles.cartIcon}>
+        <li className={`${styles.menuLink} ${styles.cartIcon}`}>
           <NavLink
             to="/cart"
             className={({ isActive }) => (isActive ? styles.active : '')}
