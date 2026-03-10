@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
 
   const isInCart = cartItems.some((item) => item.id === product.id);
 
-  const { title, price, image, category } = product;
+  const { image, title, price } = product;
 
   return (
     <article className={styles.card}>
@@ -28,7 +28,6 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className={styles.content}>
-        <span className={styles.category}>{category}</span>
         <h3 className={styles.title}>{title}</h3>
       </div>
 

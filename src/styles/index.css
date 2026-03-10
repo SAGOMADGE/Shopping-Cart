@@ -10,6 +10,15 @@
   --space-xl: 32px;
   --space-2xl: 48px;
 
+  /* шрифты */
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-base: 16px;
+  --fs-md: 18px;
+  --fs-lg: 24px;
+  --fs-xl: 32px;
+  --fs-2xl: 48px;
+
   /* Основная палитра (Tokyo Night Style) */
   --bg-color: #0f172a;
   --card-bg: #1e293b;
@@ -25,8 +34,19 @@
   --success: #22c55e;
   --warning: #f59e0b;
 
+  /* font-weigh */
+  --fw-bold: 600;
+
+  /* border-radius */
+  --br-xs: 4px;
+  --br-sm: 6px;
+  --br-md: 10px;
+  --br-lg: 16px;
+  --br-xl: 24px;
+  --br-2xl: 32px;
+  --br-circle: 50%;
+
   /* Геометрия и анимация */
-  --radius: 8px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --container-width: 1200px;
 
