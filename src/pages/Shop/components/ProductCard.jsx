@@ -10,12 +10,15 @@ import styles from './ProductCard.module.css';
  * @param {number} props.product.price - Цена
  * @param {string} props.product.image - Изображение
  * @param {string} props.product.category - Категория
+ * @param {number} props.product.id - Идентификатор
  */
 
 const ProductCard = ({ product }) => {
-  const { addToCart } = useCart(); // - вытаскиваем ф-ию с контекста
+  const { addToCart, cartItems } = useCart(); // - вытаскиваем ф-ию с контекста
 
   if (!product) return null;
+
+  const isInCart = cartItems.some((item) => item.id === product.id);
 
   const { title, price, image, category } = product;
 
@@ -33,7 +36,7 @@ const ProductCard = ({ product }) => {
       <div className={styles.footer}>
         <span className={styles.price}>${Number(price).toFixed(2)}</span>
         <button className={styles.addBtn} onClick={() => addToCart(product)}>
-          Добавить в корзину
+          {isInCart ? 'В корзине ✓' : 'Добавить в корзину'}
         </button>
       </div>
     </article>
