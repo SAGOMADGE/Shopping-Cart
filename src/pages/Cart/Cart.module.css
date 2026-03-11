@@ -1,11 +1,7 @@
 .cartItem {
+  display: flex;
   margin-top: 10px;
   color: #999;
-}
-
-.cartItemTitle {
-  font-weight: bold;
-  color: #fff;
 }
 
 button {
@@ -14,10 +10,6 @@ button {
 
 .cartTotal {
   margin-top: 10px;
-}
-
-.cartItem > * button {
-  color: #fff;
 }
 
 .clearCartBtn {
