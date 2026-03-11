@@ -87,3 +87,7 @@
 .addBtn:hover:not(:disabled) {
   background-color: var(--primary-hover);
 }
+
+.addBtn:active {
+  transform: scale(0.98);
+}

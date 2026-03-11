@@ -2,7 +2,7 @@
 
 /* --- 1. DESIGN TOKENS (Переменные) --- */
 :root {
-  /* отступы */
+  /* Отступы */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -10,13 +10,13 @@
   --space-xl: 32px;
   --space-2xl: 48px;
 
-  /*  текст */
+  /* Текст */
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-accent: #38bdf8; /* для цены, акцентных надписей */
   --text-inverse: #0f172a; /* тёмный текст на светлом фоне — для кнопок */
 
-  /* шрифты */
+  /* Размеры шрифта */
   --fs-xs: 12px;
   --fs-sm: 14px;
   --fs-base: 16px;
@@ -34,15 +34,16 @@
   --primary: #38bdf8;
   --primary-hover: #0ea5e9;
   --accent: #818cf8;
-
   --danger: #ef4444;
   --success: #22c55e;
   --warning: #f59e0b;
 
-  /* font-weigh */
+  /* Насыщенность шрифта */
+  --fw-regular: 400;
+  --fw-medium: 500;
   --fw-bold: 600;
 
-  /* border-radius */
+  /* Скругления */
   --br-xs: 4px;
   --br-sm: 6px;
   --br-md: 10px;
@@ -57,23 +58,25 @@
   --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.5);
   --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
 
-  /* Геометрия и анимация */
+  /* Анимация */
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --container-width: 1200px;
 
   /* Типографика */
   --font-family: 'Inter', sans-serif;
   --font-accent: 'Montserrat', sans-serif;
+
+  /* Лэйаут */
+  --container-width: 1200px;
 }
 
-/* --- 2. RESET & BASE (Сброс и база) --- */
+/* --- 2. RESET & BASE --- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  -webkit-tap-highlight-color: transparent; /* Убирает синий блик на моб. устройствах */
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,
@@ -91,7 +94,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Инструменты для работы с контентом */
 img,
 picture,
 video,
@@ -108,31 +110,36 @@ select {
   font: inherit;
 }
 
-/* Сброс стилей для ссылок */
+/* --- 3. ССЫЛКИ --- */
 a {
-  text-decoration: none; /* Удаляем подчеркивание */
-  color: inherit; /* Ссылка берет цвет у родительского текста */
-  cursor: pointer; /* Всегда показываем "палец" */
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Сброс стилей для кнопок (Reset Button) */
+/* --- 4. КНОПКИ --- */
 button {
-  background: none; /* Убираем дефолтный серый фон */
-  border: none; /* Убираем рамку */
-  padding: 0; /* Сбрасываем внутренние отступы */
-  font: inherit; /* Наследуем шрифт от родителя */
-  cursor: pointer; /* Указатель при наведении */
-  outline: inherit; /* Наследуем логику фокуса */
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: revert; /* сохраняем браузерный фокус — важно для доступности */
 }
 
-/* Состояния для интерактивности — база для Junior+ */
-a:hover,
-button:hover {
-  filter: brightness(0.8); /* Легкое затемнение при наведении */
+/* --- 5. ИНТЕРАКТИВНОСТЬ --- */
+
+/* transition на базовом состоянии — анимация плавная в обе стороны */
+a,
+button {
   transition: filter 0.2s ease;
 }
 
+a:hover,
+button:hover:not(:disabled) {
+  filter: brightness(0.8);
+}
+
 button:disabled {
-  cursor: not-allowed; /* Показываем, что нажать нельзя */
-  opacity: 0.5; /* Визуально "гасим" кнопку */
+  cursor: not-allowed;
+  opacity: 0.5;
 }
