@@ -1,36 +1,12 @@
-import { useState, useEffect } from 'react';
+import useFetch from '@/hooks/useFetch';
 import { getAllProducts } from '@/api/products'; // Проверь путь к api
 import ProductCard from '@/pages/Shop/components/ProductCard';
 import styles from './Shop.module.css';
+import { useCallback } from 'react';
 
 const Shop = () => {
-  const [products, setProducts] = useState([]); // Изначально пустой массив
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    const fetchItems = async () => {
-      try {
-        setLoading(true);
-        const data = await getAllProducts(controller.signal);
-        setProducts(data);
-      } catch (err) {
-        if (err.name === 'AbortError') return;
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchItems();
-
-    // Функция очистки (cleanup)
-    return () => {
-      controller.abort(); // размонтирование -> отменяем
-    };
-  }, []);
+  const memorizedFetch = useCallback((signal) => getAllProducts(signal), []);
+  const { data: products, loading, error } = useFetch(memorizedFetch);
 
   // Early returns для состояний
   if (loading) return <div className={styles.center}>Загрузка товаров...</div>;
