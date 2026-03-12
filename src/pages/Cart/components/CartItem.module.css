@@ -1,33 +1,56 @@
 .cartItem {
   display: flex;
   gap: var(--space-md);
+  background-color: var(--card-bg);
+  padding: var(--space-md);
+  border-radius: var(--br-md);
 }
 
 .imgWrapper {
-  min-height: 180px;
+  height: 80px;
+  width: 80px;
+  flex-shrink: 0;
   background-color: #fff;
   overflow: hidden;
+  border-radius: var(--br-sm);
 }
 
 .image {
   height: 100%;
   width: 100%;
   object-fit: contain;
-  padding: var(--space-md);
+  padding: var(--space-xs);
+  border-radius: var(--br-sm);
 }
 
 .info {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: var(--space-md);
-  text-align: center;
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.price {
+  color: var(--text-accent);
 }
 
 .controls {
   display: flex;
   gap: var(--space-md);
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+
+.quantity {
+  min-width: 10px;
 }
 
 .addBtn,
@@ -36,15 +59,40 @@
   justify-content: center;
   align-items: center;
   font-size: var(--fs-lg);
-  background-color: #999;
+  background-color: var(--cart-btn);
   height: 32px;
   width: 32px;
   padding: var(--space-sm);
+  border-radius: var(--br-sm);
+  transition:
+    background-color 150ms ease,
+    transform 150ms ease;
 }
 
 .removeBtn {
   height: 32px;
   width: 32px;
-  background-color: #999;
+  margin-left: auto;
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cart-btn);
+  border-radius: var(--br-sm);
   padding: var(--space-sm);
+  transition:
+    background-color 150ms ease,
+    transform 150ms ease;
+}
+
+.addBtn:hover,
+.subtractBtn:hover,
+.removeBtn:hover {
+  background-color: var(--cart-btn-hover);
+}
+
+.addBtn:active,
+.subtractBtn:active,
+.removeBtn:active {
+  transform: scale(0.97);
 }

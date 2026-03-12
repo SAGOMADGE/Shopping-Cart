@@ -29,12 +29,15 @@
   --bg-color: #0f172a;
   --card-bg: #1e293b;
   --nav-bg: #1a1a1a;
+  --cart-btn: #c6c3c3;
+  --cart-btn-hover: #968e8e;
 
   /* Акценты и статусы */
   --primary: #38bdf8;
   --primary-hover: #0ea5e9;
   --accent: #818cf8;
   --danger: #ef4444;
+  --danger-hover: #e54444;
   --success: #22c55e;
   --warning: #f59e0b;
 

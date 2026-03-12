@@ -11,7 +11,7 @@ const Cart = () => {
   }
 
   return (
-    <div>
+    <div className={styles.cartContainer}>
       {cartItems.map((item) => (
         <CartItem
           key={item.id}
@@ -21,7 +21,7 @@ const Cart = () => {
         />
       ))}
 
-      <p className={styles.cartTotal}>Итого: {totalPrice.toFixed(2)}</p>
+      <p className={styles.cartTotal}>Итого: ${totalPrice.toFixed(2)}</p>
       <button className={styles.clearCartBtn} type="button" onClick={clearCart}>
         Очистить корзину
       </button>

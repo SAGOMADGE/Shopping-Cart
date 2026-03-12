@@ -9,7 +9,7 @@ const CartItem = ({ item, removeFromCart, updateQuantity }) => {
 
       <div className={styles.info}>
         <p className={styles.title}>{item.title}</p>
-        <p className={styles.price}>{item.price}</p>
+        <p className={styles.price}>${item.price}</p>
 
         <div className={styles.controls}>
           <button

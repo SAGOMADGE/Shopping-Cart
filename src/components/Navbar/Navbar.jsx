@@ -31,7 +31,7 @@ const Navbar = () => {
             to="/cart"
             className={({ isActive }) => (isActive ? styles.active : '')}
           >
-            Cart ({totalItems})
+            Cart <span className={styles.cartQuantity}>({totalItems})</span>
           </NavLink>
         </li>
       </ul>
