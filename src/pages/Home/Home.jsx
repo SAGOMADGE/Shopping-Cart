@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className={styles.homePage}>
       <ShoppingBag size={64} color="var(--primary)" />
-      <h1 className={styles.homeHeadline}>Fake Store</h1>
+      <h1 className={styles.homeHeadline}>Uzbek Store</h1>
       <h2 className={styles.homeDescription}>Лучшие цены</h2>
       <NavLink to="/shop" end className={styles.homeToShopLink}>
         В магазин
