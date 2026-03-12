@@ -1,13 +1,23 @@
 import { useCart } from '@/context/CartContext';
 import CartItem from './components/CartItem';
+import { NavLink } from 'react-router-dom';
 import styles from './Cart.module.css';
 
 const Cart = () => {
   const { cartItems, totalPrice, removeFromCart, updateQuantity, clearCart } =
     useCart();
+  const emptyCart = cartItems.length === 0;
 
-  if (cartItems.length === 0) {
-    return <p>Корзина пуста</p>;
+  if (emptyCart) {
+    return (
+      <div className={styles.emptyCart}>
+        <p className={styles.emptyCartEmoji}>🛒</p>
+        <p className={styles.emptyCartText}>Ваша корзина пуста</p>
+        <NavLink to="/shop" className={styles.emptyCartNavToShop}>
+          Вернуться в магазин
+        </NavLink>
+      </div>
+    );
   }
 
   return (
