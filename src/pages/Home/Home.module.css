@@ -1,0 +1,31 @@
+.homePage {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  border-radius: var(--br-md);
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-md);
+}
+
+.homeHeadline {
+  font-family: var(--font-accent);
+}
+
+.homeDescription {
+  font-family: var(--font-accent);
+}
+
+.homeToShopLink {
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-xl);
+  background-color: var(--primary);
+  color: var(--text-inverse);
+  border-radius: var(--br-md);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-base);
+}
