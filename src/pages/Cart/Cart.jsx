@@ -2,6 +2,7 @@ import { useCart } from '@/context/CartContext';
 import CartItem from './components/CartItem';
 import { NavLink } from 'react-router-dom';
 import styles from './Cart.module.css';
+import { ShoppingCart } from 'lucide-react';
 
 const Cart = () => {
   const { cartItems, totalPrice, removeFromCart, updateQuantity, clearCart } =
@@ -11,7 +12,7 @@ const Cart = () => {
   if (emptyCart) {
     return (
       <div className={styles.emptyCart}>
-        <p className={styles.emptyCartEmoji}>🛒</p>
+        <ShoppingCart size={64} color="var(--primary)" />
         <p className={styles.emptyCartText}>Ваша корзина пуста</p>
         <NavLink to="/shop" className={styles.emptyCartNavToShop}>
           Вернуться в магазин

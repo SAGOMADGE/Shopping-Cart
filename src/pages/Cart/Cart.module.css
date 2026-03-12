@@ -12,10 +12,6 @@
   box-shadow: var(--shadow-sm);
 }
 
-.emptyCartEmoji {
-  font-size: var(--fs-2xl);
-}
-
 .emptyCartText {
   font-size: var(--fs-lg);
   font-family: var(--font-accent);

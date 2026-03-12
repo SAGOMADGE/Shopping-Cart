@@ -15,10 +15,6 @@
   font-family: var(--font-accent);
 }
 
-.cartQuantity {
-  color: var(--text-accent);
-}
-
 .menu {
   display: flex;
   gap: var(--space-md);
@@ -32,4 +28,24 @@
 .active {
   color: #646cff;
   font-weight: bold;
+}
+
+.cartIcon {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--danger);
+  color: var(--text-main);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  width: 18px;
+  height: 18px;
+  border-radius: var(--br-circle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

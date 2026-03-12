@@ -1,4 +1,5 @@
 import styles from './CartItem.module.css';
+import { X } from 'lucide-react';
 
 const CartItem = ({ item, removeFromCart, updateQuantity }) => {
   return (
@@ -32,7 +33,7 @@ const CartItem = ({ item, removeFromCart, updateQuantity }) => {
         className={styles.removeBtn}
         onClick={() => removeFromCart(item.id)}
       >
-        x
+        <X size={16} />
       </button>
     </div>
   );
