@@ -23,6 +23,7 @@
   background-color: var(--card-bg);
   border-radius: var(--br-md);
   padding: var(--space-md);
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
@@ -58,6 +59,6 @@
 
 .button {
   height: 36px;
-  width: 120px;
+  width: 175px;
   border-radius: var(--br-md);
 }
