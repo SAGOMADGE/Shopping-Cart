@@ -1,0 +1,63 @@
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--card-bg) 25%,
+    #2d3f55 50%,
+    var(--card-bg) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1500ms infinite;
+  border-radius: var(--br-sm);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--br-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 180px;
+  border-radius: var(--br-sm);
+}
+
+.titleLine1 {
+  height: 16px;
+  width: 100%;
+}
+
+.titleLine2 {
+  height: 16px;
+  width: 60%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.price {
+  height: 20px;
+  width: 60px;
+}
+
+.button {
+  height: 36px;
+  width: 120px;
+  border-radius: var(--br-md);
+}
