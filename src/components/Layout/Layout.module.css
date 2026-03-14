@@ -10,6 +10,6 @@
   flex: 1;
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-lg) var(--space-md) var(--space-lg);
   width: 100%;
 }
