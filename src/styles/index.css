@@ -73,6 +73,29 @@
   --container-width: 1200px;
 }
 
+/* --- АДАПТИВНОСТЬ --- */
+/* планшет */
+@media (min-width: 768px) {
+  :root {
+    --fs-xs: 13px;
+    --fs-sm: 15px;
+    --fs-base: 17px;
+    --fs-md: 20px;
+    --fs-lg: 26px;
+  }
+}
+
+/* десктоп */
+@media (min-width: 1024px) {
+  :root {
+    --fs-xs: 14px;
+    --fs-sm: 16px;
+    --fs-base: 18px;
+    --fs-md: 22px;
+    --fs-lg: 28px;
+  }
+}
+
 /* --- 2. RESET & BASE --- */
 *,
 *::before,

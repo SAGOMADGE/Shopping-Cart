@@ -8,6 +8,7 @@
 .shopTitle {
   text-align: center;
   margin-bottom: var(--space-md);
+  font-size: clamp(var(--fs-lg), 5vw, var(--fs-xl));
 }
 
 .productsGrid {
