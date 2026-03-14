@@ -17,23 +17,15 @@
   padding: var(--space-xs) 0;
 }
 
-/* планшет — 2 колонки */
-@media (min-width: 768px) {
+/* планшет — 2 колонки принудительно */
+@media (min-width: 600px) and (max-width: 767px) {
   .productsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* десктоп — 3 колонки */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .productsGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* широкий экран — 4 колонки */
-@media (min-width: 1280px) {
-  .productsGrid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
