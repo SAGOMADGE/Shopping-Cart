@@ -2,6 +2,7 @@
   text-align: center;
   padding: var(--space-md) 0;
   background-color: var(--footer-bg);
+  margin-top: var(--space-2xl);
 }
 
 .footerText {
