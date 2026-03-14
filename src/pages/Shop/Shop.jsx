@@ -16,9 +16,9 @@ const Shop = () => {
       <h1 className={styles.shopTitle}>Наш ассортимент</h1>
       <div className={styles.productsGrid}>
         {loading
-          ? Array.from({ length: 6 }).map((_, i) => (
-              <ProductCardSkeleton key={i} />
-            ))
+          ? Array(6)
+              .fill(null)
+              .map((_, i) => <ProductCardSkeleton key={i} />)
           : products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
