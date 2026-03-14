@@ -8,7 +8,6 @@ import styles from './ProductCard.module.css';
  * @param {string} props.product.title - Название
  * @param {number} props.product.price - Цена
  * @param {string} props.product.image - Изображение
- * @param {string} props.product.category - Категория
  * @param {number} props.product.id - Идентификатор
  */
 
