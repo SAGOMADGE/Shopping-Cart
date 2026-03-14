@@ -9,6 +9,7 @@
   background-color: var(--card-bg);
   box-shadow: var(--shadow-card);
   transition: transform var(--transition);
+  animation: fadeInUp 600ms ease forwards;
 }
 
 .card:hover {
@@ -90,4 +91,15 @@
 
 .addBtn:active {
   transform: scale(0.98);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
