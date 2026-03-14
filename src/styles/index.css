@@ -147,3 +147,30 @@ button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
+
+/* СКРОЛЛ-БАР */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* фон дорожки */
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+/* сам ползунок */
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: var(--br-md);
+}
+
+/* ползунок при наведении */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) var(--bg-color);
+}
