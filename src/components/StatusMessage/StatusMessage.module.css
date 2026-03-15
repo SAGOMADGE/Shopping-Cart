@@ -58,7 +58,7 @@
   box-shadow: var(--shadow-sm);
 
   font-size: var(--fs-md);
-  font-weight: var(--fw-boldish);
+  font-weight: var(--fw-bold);
 
   transition-timing-function:
     background-color 200ms ease,
