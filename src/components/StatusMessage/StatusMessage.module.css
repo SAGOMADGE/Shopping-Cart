@@ -1,0 +1,110 @@
+.statusMessageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: var(--shadow-lg);
+
+  margin: var(--space-2xl) auto;
+  padding: var(--space-xl) var(--space-lg);
+  width: 80%;
+  max-width: 800px;
+
+  background-color: var(--color-card-error);
+  border: 1px solid var(--color-error-border);
+  border-radius: var(--br-lg);
+
+  text-align: center;
+
+  animation: statusFadeIn 300ms ease-out;
+}
+
+.icon {
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-md);
+  line-height: var(--line-sm);
+  animation: pulseRotate 2000ms ease-in-out;
+}
+
+.title {
+  font-family: var(--font-accent);
+  color: var(--text-error-title);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-sm);
+}
+
+.statusText {
+  font-size: var(--fs-md);
+  font-family: var(--font-accent);
+  color: var(--text-secondary);
+  line-height: var(--lh-base);
+}
+
+.retryBtn {
+  margin-top: var(--space-lg);
+  width: calc(100% - (var(--space-xl) * 2));
+  padding: var(--space-md) var(--space-lg);
+  max-width: 400px;
+
+  background-color: var(--primary);
+  color: #ffffff;
+  border-radius: var(--br-sm);
+  border: none;
+  box-shadow: var(--shadow-sm);
+
+  font-size: var(--fs-md);
+  font-weight: var(--fw-boldish);
+
+  transition-timing-function:
+    background-color 200ms ease,
+    transform 100ms ease-in;
+}
+
+.retryBtn:hover {
+  background-color: var(--primary-hover);
+}
+
+.retryBtn:active {
+  transform: scale(0.97);
+}
+
+@keyframes statusFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotate(10deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .retryBtn {
+    padding: 20px 30px;
+  }
+
+  .status-title {
+    font-size: 50px;
+  }
+}

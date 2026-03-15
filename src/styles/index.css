@@ -71,6 +71,14 @@
 
   /* Лэйаут */
   --container-width: 1200px;
+
+  /* Error styling */
+  --color-card-error: rgba(30, 41, 59, 0.7); /* Темный полупрозрачный фон */
+  --color-error-border: rgba(239, 68, 68, 0.2);
+  --text-error-title: #f8fafc;
+  --text-secondary: #94a3b8;
+  --lh-base: 1.5;
+  --fw-boldish: 600;
 }
 
 /* --- АДАПТИВНОСТЬ --- */

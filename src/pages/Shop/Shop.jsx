@@ -4,12 +4,15 @@ import ProductCard from '@/pages/Shop/components/ProductCard';
 import ProductCardSkeleton from './components/ProductCardSkeleton';
 import styles from './Shop.module.css';
 import { useCallback } from 'react';
+import StatusMessage from '@/components/StatusMessage/StatusMessage';
 
 const Shop = () => {
   const memorizedFetch = useCallback((signal) => getAllProducts(signal), []);
-  const { data: products, loading, error } = useFetch(memorizedFetch);
+  const { data: products, loading, error, refresh } = useFetch(memorizedFetch);
 
-  if (error) return <div className={styles.error}>Ошибка: {error}</div>;
+  if (error) {
+    return <StatusMessage type="error" icon="⚠️" onRetry={refresh} />;
+  }
 
   return (
     <div className={styles.shopContainer}>
