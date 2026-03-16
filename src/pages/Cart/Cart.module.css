@@ -13,6 +13,7 @@
   padding: var(--space-md);
   border-radius: var(--br-md);
   box-shadow: var(--shadow-sm);
+  animation: fadeInUp 600ms ease forwards;
 }
 
 .emptyCartText {
@@ -122,5 +123,16 @@
   100% {
     opacity: 1;
     transform: translateX(-50%) translateY(-55px);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
