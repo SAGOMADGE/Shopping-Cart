@@ -18,7 +18,7 @@ const Cart = () => {
   const handleCheckout = () => {
     if (cartItems.length > 0) {
       clearCart();
-      showNotification('✅ Заказ успешно оформлен!');
+      showNotification('Заказ успешно оформлен!');
     }
   };
 
