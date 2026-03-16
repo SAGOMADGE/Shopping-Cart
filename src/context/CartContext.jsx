@@ -24,9 +24,24 @@ export const CartProvider = ({ children }) => {
     }
   });
 
+  const [toast, setToast] = useState({ show: false, message: '' });
+
+  const showNotification = (message) => {
+    setToast({ show: true, message });
+  };
+
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
+
+  useEffect(() => {
+    if (toast.show) {
+      const timer = setTimeout(() => {
+        setToast({ show: false, message: '' });
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [toast.show]);
 
   // Добавление товара
   const addToCart = (product) => {
@@ -86,6 +101,8 @@ export const CartProvider = ({ children }) => {
     clearCart,
     totalItems,
     totalPrice,
+    toast,
+    showNotification,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
