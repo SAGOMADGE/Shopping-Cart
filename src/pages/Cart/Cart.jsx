@@ -5,11 +5,26 @@ import styles from './Cart.module.css';
 import { ShoppingCart } from 'lucide-react';
 
 const Cart = () => {
-  const { cartItems, totalPrice, removeFromCart, updateQuantity, clearCart } =
-    useCart();
+  const {
+    cartItems,
+    totalPrice,
+    removeFromCart,
+    updateQuantity,
+    clearCart,
+    toast,
+    showNotification,
+  } = useCart();
+
+  const handleCheckout = () => {
+    if (cartItems.length > 0) {
+      clearCart();
+      showNotification('✅ Заказ успешно оформлен!');
+    }
+  };
+
   const emptyCart = cartItems.length === 0;
 
-  if (emptyCart) {
+  if (emptyCart && !toast.show) {
     return (
       <div className={styles.emptyCart}>
         <ShoppingCart size={64} color="var(--primary)" />
@@ -23,6 +38,12 @@ const Cart = () => {
 
   return (
     <div className={styles.cartContainer}>
+      {toast.show && (
+        <div className={styles.toast} role="alert">
+          {toast.message}
+        </div>
+      )}
+
       {cartItems.map((item) => (
         <CartItem
           key={item.id}
@@ -33,9 +54,21 @@ const Cart = () => {
       ))}
 
       <p className={styles.cartTotal}>Итого: ${totalPrice.toFixed(2)}</p>
-      <button className={styles.clearCartBtn} type="button" onClick={clearCart}>
-        Очистить корзину
-      </button>
+
+      {!emptyCart && (
+        <div className={styles.cartActions}>
+          <button
+            className={styles.clearCartBtn}
+            type="button"
+            onClick={clearCart}
+          >
+            Очистить корзину
+          </button>
+          <button className={styles.checkoutBtn} onClick={handleCheckout}>
+            Оформить заказ
+          </button>
+        </div>
+      )}
     </div>
   );
 };
