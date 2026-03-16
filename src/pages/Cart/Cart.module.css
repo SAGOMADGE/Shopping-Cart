@@ -32,6 +32,7 @@
 }
 
 .cartContainer {
+  position: relative;
   max-width: 800px;
   margin: 0 auto;
   width: 100%;
@@ -96,4 +97,30 @@
 
 .checkoutBtn:active {
   transform: scale(0.97);
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--success);
+  color: var(--text-main);
+  padding: var(--space-sm) var(--space-xl);
+  font-family: var(--font-accent);
+  font-weight: var(--fw-bold);
+  z-index: 1000;
+  animation: fadeinDown 300ms ease forwards;
+  border-radius: var(--br-md);
+  white-space: nowrap;
+}
+
+@keyframes fadeinDown {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-90px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-55px);
+  }
 }
