@@ -53,7 +53,9 @@ const Cart = () => {
         />
       ))}
 
-      <p className={styles.cartTotal}>Итого: ${totalPrice.toFixed(2)}</p>
+      {!toast.show && (
+        <p className={styles.cartTotal}>Итого: ${totalPrice.toFixed(2)}</p>
+      )}
 
       {!emptyCart && (
         <div className={styles.cartActions}>
