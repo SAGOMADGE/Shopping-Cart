@@ -14,10 +14,12 @@
 
 .homeHeadline {
   font-family: var(--font-accent);
+  font-size: var(--fs-2xl);
 }
 
 .homeDescription {
   font-family: var(--font-accent);
+  font-size: var(--fs-xl);
 }
 
 .homeToShopLink {
@@ -27,5 +29,5 @@
   color: var(--text-inverse);
   border-radius: var(--br-md);
   font-weight: var(--fw-bold);
-  font-size: var(--fs-base);
+  font-size: var(--fs-lg);
 }

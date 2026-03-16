@@ -27,7 +27,7 @@ const Cart = () => {
   if (emptyCart && !toast.show) {
     return (
       <div className={styles.emptyCart}>
-        <ShoppingCart size={64} color="var(--primary)" />
+        <ShoppingCart size={84} color="var(--primary)" />
         <p className={styles.emptyCartText}>Ваша корзина пуста</p>
         <NavLink to="/shop" className={styles.emptyCartNavToShop}>
           Вернуться в магазин
