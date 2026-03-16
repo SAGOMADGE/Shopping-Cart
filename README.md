@@ -15,7 +15,7 @@
 <details>
   <summary>🔍 Посмотреть остальные экраны (Desktop)</summary>
 
-|                          Корзина                          |                       Страница 404                        |
+|                          Корзина                          |                        Пустая корзина                      |
 | :-------------------------------------------------------: | :-------------------------------------------------------: |
 | <img src="src/assets/laptop screenshot3.jpg" width="400"> | <img src="src/assets/laptop screenshot4.jpg" width="400"> |
 
