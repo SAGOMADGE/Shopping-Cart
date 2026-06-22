@@ -49,7 +49,7 @@
 
 ## 🛠 Технологический стек (Tech Stack)
 
-- **Core:** React 18, Vite.
+- **Core:** React 19, Vite.
 - **Routing:** React Router v6.
 - **State Management:** React Context API + Custom Hooks.
 - **Styles:** CSS Modules (изоляция стилей), CSS Variables (дизайн-токены).
