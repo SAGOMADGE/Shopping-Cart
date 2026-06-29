@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        index: true, // по умлч внутри род пути "/"- <Home />
+        index: true,
         element: <Home />,
       },
       {

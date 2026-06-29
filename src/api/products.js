@@ -1,8 +1,7 @@
 const BASE_URL = 'https://fakestoreapi.com';
 
 /**
- * Получает список всех товаров
- * @returns {Promise<Array>} Массив объектов товара
+ * @returns {Promise<Array>}
  */
 
 export const getAllProducts = async (signal) => {
@@ -16,8 +15,6 @@ export const getAllProducts = async (signal) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    // Логируем для разраба
-    // Пробрасываем дальше для UI
     console.error('Ошибка при получении товара:', error.message);
     throw error;
   }

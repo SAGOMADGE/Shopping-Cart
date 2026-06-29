@@ -1,4 +1,3 @@
-// Это мастер страница, она определяет где всегда будет Navbar, а где будет меняться контент
 import { Outlet } from 'react-router-dom';
 import NavBar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
