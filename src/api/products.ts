@@ -21,8 +21,14 @@ export const getAllProducts = async (
 
     return rawData;
   } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error('Error while fetching products:', message);
+    const isAbortError = error instanceof Error && error.name === 'AbortError';
+
+    if (!isAbortError) {
+      const message = error instanceof Error ? error.message : String(error);
+
+      console.error(`Error while fetching products:`, message);
+    }
+
     throw error;
   }
 };
