@@ -1,7 +1,18 @@
-import styles from './CartItem.module.css';
 import { X } from 'lucide-react';
+import type { CartItem as CartItemType } from '@/types/product';
+import styles from './CartItem.module.css';
 
-const CartItem = ({ item, removeFromCart, updateQuantity }) => {
+type CartItemProps = {
+  item: CartItemType;
+  removeFromCart: (productId: number) => void;
+  updateQuantity: (productId: number, amount: number) => void;
+};
+
+const CartItem = ({
+  item,
+  removeFromCart,
+  updateQuantity,
+}: CartItemProps) => {
   return (
     <div className={styles.cartItem}>
       <div className={styles.imgWrapper}>

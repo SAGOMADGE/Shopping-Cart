@@ -1,6 +1,13 @@
+import type { ReactNode } from 'react';
 import styles from './StatusMessage.module.css';
 
-const StatusMessage = ({ type, icon, onRetry }) => {
+type StatusMessageProps = {
+  type: 'error';
+  icon: ReactNode;
+  onRetry: () => void;
+};
+
+const StatusMessage = ({ type, icon, onRetry }: StatusMessageProps) => {
   return (
     <div className={styles.statusMessageContainer}>
       <div className={styles.icon} role="img" aria-label={type}>

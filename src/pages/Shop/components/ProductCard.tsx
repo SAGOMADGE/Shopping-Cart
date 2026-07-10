@@ -1,23 +1,14 @@
 import { useCart } from '@/context/CartContext';
+import type { Product } from '@/types/product';
 import styles from './ProductCard.module.css';
 
-/**
- * Карточка товара для страницы магазина.
- * @param {Object} props
- * @param {Object} props.product - Объект товара
- * @param {string} props.product.title - Название
- * @param {number} props.product.price - Цена
- * @param {string} props.product.image - Изображение
- * @param {number} props.product.id - Идентификатор
- */
+type ProductCardProps = {
+  product: Product;
+};
 
-const ProductCard = ({ product }) => {
-  const { addToCart, cartItems } = useCart(); // - вытаскиваем ф-ию с контекста
-
-  if (!product) return null;
-
+const ProductCard = ({ product }: ProductCardProps) => {
+  const { addToCart, cartItems } = useCart();
   const isInCart = cartItems.some((item) => item.id === product.id);
-
   const { image, title, price } = product;
 
   return (

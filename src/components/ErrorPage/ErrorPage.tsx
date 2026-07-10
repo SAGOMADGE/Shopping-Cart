@@ -10,7 +10,7 @@ const ErrorPage = () => {
           Вы перешли по невалидному URL.
           <br /> Следуйте ссылке ниже⬇️
         </p>
-        <Link to="/shop" end className={styles.errorPageLink}>
+        <Link to="/shop" className={styles.errorPageLink}>
           Вернуться в магазин
         </Link>
       </div>

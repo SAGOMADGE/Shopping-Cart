@@ -1,11 +1,8 @@
-import { findByRole, getByRole, render, screen } from '@testing-library/react';
-
+import { render, screen } from '@testing-library/react';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
-
 import { getAllProducts } from '@/api/products';
-
 import { CartProvider } from '@/context/CartContext';
-
+import { createProduct } from '@/tests/fixtures';
 import Shop from './Shop';
 
 vi.mock('@/api/products', () => ({
@@ -28,16 +25,26 @@ const renderShop = () => {
 };
 
 const mockProducts = [
-  {
+  createProduct({
     id: 1,
     title: 'Test Product',
     price: 19.99,
     image: 'https://example.com/product.jpg',
-  },
+  }),
 ];
 
 describe('Shop', () => {
-  it('рендерит товары при успешном запросе', async () => {
+  it('renders the original Russian page heading', async () => {
+    mockedGetAllProducts.mockResolvedValue(mockProducts);
+
+    renderShop();
+
+    expect(
+      screen.getByRole('heading', { name: 'Наш ассортимент' })
+    ).toBeInTheDocument();
+  });
+
+  it('renders products after successful request', async () => {
     mockedGetAllProducts.mockResolvedValue(mockProducts);
 
     renderShop();

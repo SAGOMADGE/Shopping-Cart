@@ -8,7 +8,7 @@ const Home = () => {
       <ShoppingBag size={84} color="var(--primary)" />
       <h1 className={styles.homeHeadline}>SAGO Store</h1>
       <h2 className={styles.homeDescription}>Лучшие цены</h2>
-      <NavLink to="/shop" end className={styles.homeToShopLink}>
+      <NavLink to="/shop" end className={styles.homeToShopLink ?? ''}>
         В магазин
       </NavLink>
     </div>

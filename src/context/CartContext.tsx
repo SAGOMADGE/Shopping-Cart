@@ -1,6 +1,43 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  type PropsWithChildren,
+} from 'react';
+import type { CartItem, Product } from '@/types/product';
+import { isCart } from '@/validators/cart';
 
-const CartContext = createContext(null);
+type ToastState = {
+  show: boolean;
+  message: string;
+};
+
+type CartContextValue = {
+  cartItems: CartItem[];
+  addToCart: (product: Product) => void;
+  removeFromCart: (productId: number) => void;
+  updateQuantity: (productId: number, amount: number) => void;
+  clearCart: () => void;
+  totalItems: number;
+  totalPrice: number;
+  toast: ToastState;
+  showNotification: (message: string) => void;
+};
+
+const readCartFromStorage = (): CartItem[] => {
+  try {
+    const saved = localStorage.getItem('cart');
+    if (!saved) return [];
+
+    const parsed: unknown = JSON.parse(saved);
+    return isCart(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+};
+
+const CartContext = createContext<CartContextValue | null>(null);
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useCart = () => {
@@ -11,19 +48,11 @@ export const useCart = () => {
   return context;
 };
 
-export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState(() => {
-    try {
-      const saved = localStorage.getItem('cart');
-      return saved ? JSON.parse(saved) : [];
-    } catch {
-      return [];
-    }
-  });
+export const CartProvider = ({ children }: PropsWithChildren) => {
+  const [cartItems, setCartItems] = useState<CartItem[]>(readCartFromStorage);
+  const [toast, setToast] = useState<ToastState>({ show: false, message: '' });
 
-  const [toast, setToast] = useState({ show: false, message: '' });
-
-  const showNotification = (message) => {
+  const showNotification = (message: string) => {
     setToast({ show: true, message });
   };
 
@@ -40,7 +69,7 @@ export const CartProvider = ({ children }) => {
     }
   }, [toast.show]);
 
-  const addToCart = (product) => {
+  const addToCart = (product: Product) => {
     setCartItems((prev) => {
       const exist = prev.find((item) => item.id === product.id);
 
@@ -55,11 +84,11 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const removeFromCart = (productId) => {
+  const removeFromCart = (productId: number) => {
     setCartItems((prev) => prev.filter((item) => item.id !== productId));
   };
 
-  const updateQuantity = (productId, amount) => {
+  const updateQuantity = (productId: number, amount: number) => {
     setCartItems((prev) =>
       prev
         .map((item) =>
@@ -79,7 +108,7 @@ export const CartProvider = ({ children }) => {
     0
   );
 
-  const value = {
+  const value: CartContextValue = {
     cartItems,
     addToCart,
     removeFromCart,

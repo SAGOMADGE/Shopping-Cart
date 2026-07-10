@@ -29,7 +29,7 @@ const Cart = () => {
       <div className={styles.emptyCart}>
         <ShoppingCart size={84} color="var(--primary)" />
         <p className={styles.emptyCartText}>Ваша корзина пуста</p>
-        <NavLink to="/shop" className={styles.emptyCartNavToShop}>
+        <NavLink to="/shop" className={styles.emptyCartNavToShop ?? ''}>
           Вернуться в магазин
         </NavLink>
       </div>
