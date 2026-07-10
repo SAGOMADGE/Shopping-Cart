@@ -1,123 +1,281 @@
-# 🛒 SAGOMADGE Store (E-commerce SPA)
+# 🛒 SAGOMADGE Store
 
-## 📱 Интерфейс приложения (Preview)
+Адаптивное одностраничное приложение интернет-магазина, созданное на **React 19, TypeScript и Vite**.
 
-🔗 **[Посмотреть живое демо на Vercel](https://shopping-cart-pearl-zeta.vercel.app/)**
+Проект демонстрирует работу с асинхронными запросами, глобальным состоянием, клиентской маршрутизацией, `localStorage`, runtime-валидацией внешних данных и автоматическими тестами.
 
-### 💻 Desktop Experience
+🔗 **[Открыть приложение на Vercel](https://shopping-cart-pearl-zeta.vercel.app/)**
 
-Для десктопной версии я реализовал просторный интерфейс с акцентом на карточки товаров и удобную навигацию.
+---
+
+## 📱 Интерфейс приложения
+
+### Desktop
 
 |                     Главная страница                      |                      Каталог товаров                      |
 | :-------------------------------------------------------: | :-------------------------------------------------------: |
 | <img src="src/assets/laptop screenshot1.jpg" width="400"> | <img src="src/assets/laptop screenshot2.jpg" width="400"> |
 
 <details>
-  <summary>🔍 Посмотреть остальные экраны (Desktop)</summary>
+  <summary>Показать остальные desktop-экраны</summary>
 
-|                          Корзина                          |                                                           |
+|                          Корзина                          |                      Пустая корзина                       |
 | :-------------------------------------------------------: | :-------------------------------------------------------: |
 | <img src="src/assets/laptop screenshot3.jpg" width="400"> | <img src="src/assets/laptop screenshot4.jpg" width="400"> |
 
 </details>
 
----
+### Mobile
 
-### 📱 Mobile Experience (Real Device)
+Приложение разработано по принципу **Mobile First**.
 
-Проект разработан по принципу **Mobile First**. Скриншоты сделаны с реального устройства, чтобы продемонстрировать качество верстки и удобство UX в "боевых" условиях.
-
-|                     Landing                     |                     Shop UI                     |                      Cart                       |                   Empty Cart                    |
+|                     Главная                     |                     Каталог                     |                     Корзина                     |                 Пустая корзина                  |
 | :---------------------------------------------: | :---------------------------------------------: | :---------------------------------------------: | :---------------------------------------------: |
 | <img src="src/assets/iphone 1.png" width="180"> | <img src="src/assets/iphone 2.png" width="180"> | <img src="src/assets/iphone 3.png" width="180"> | <img src="src/assets/iphone 4.png" width="180"> |
 
 ---
 
-Современное одностраничное приложение (SPA) для онлайн-шопинга, построенное на **React**. Проект демонстрирует навыки проектирования масштабируемой фронтенд-архитектуры, работы с глобальным состоянием и сложной маршрутизацией.
+## 🚀 Возможности
 
-## 🚀 Основные возможности (Features)
+- Загрузка товаров через REST API.
+- Отображение loading-, error- и success-состояний.
+- Skeleton-интерфейс во время загрузки.
+- Добавление и удаление товаров из корзины.
+- Изменение количества товаров.
+- Подсчёт общего количества и итоговой стоимости.
+- Полная очистка корзины.
+- Сохранение корзины в `localStorage`.
+- Восстановление и проверка данных после перезагрузки страницы.
+- Клиентская маршрутизация и отдельная страница ошибки.
+- Toast-уведомления после оформления заказа.
+- Адаптивный интерфейс для desktop и mobile.
 
-- **Product Listing:** Динамическая загрузка товаров через REST API (`FakeStoreAPI`).
-- **Advanced Cart Logic:** Полный цикл управления корзиной (добавление, удаление, изменение количества, очистка).
-- **State Persistence:** Сохранение состояния корзины в `localStorage` (данные не теряются при перезагрузке).
-- **Modern Routing:** Использование `createBrowserRouter` с кастомной страницей 404.
-- **UX/UI Excellence:**
-  - Скелетная загрузка (`Skeleton Screens`) для предотвращения CLS (Cumulative Layout Shift).
-  - Анимированные уведомления (Toast notifications) при успешных действиях.
-  - Полный адаптив (Mobile First).
-- **Performance:** Оптимизация запросов через `AbortController` в кастомном хуке `useFetch`.
+---
 
-## 🛠 Технологический стек (Tech Stack)
+## 🛡 Работа с внешними данными
 
-- **Core:** React 19, Vite.
-- **Routing:** React Router v6.
-- **State Management:** React Context API + Custom Hooks.
-- **Styles:** CSS Modules (изоляция стилей), CSS Variables (дизайн-токены).
-- **Testing:** Vitest, React Testing Library (Unit-тесты для бизнес-логики).
-- **Deployment:** Vercel (с настроенным SPA-роутингом через `vercel.json`).
+Данные из API и `localStorage` не считаются безопасными автоматически.
 
-## 📁 Архитектура проекта
+Перед использованием они проходят runtime-проверку:
 
-Проект организован по модульному принципу:
+```text
+API response
+→ unknown
+→ isProductArray()
+→ Product[]
+```
 
-````text
+```text
+JSON.parse()
+→ unknown
+→ isCart()
+→ CartItem[]
+```
+
+Для проверки структуры данных используются user-defined type guards:
+
+- `isProductRating`
+- `isProduct`
+- `isProductArray`
+- `isCartItem`
+- `isCart`
+
+---
+
+## ⚡ Асинхронные запросы
+
+Generic-хук `useFetch<T>` отвечает за:
+
+- состояние загрузки;
+- хранение полученных данных;
+- обработку ошибок;
+- повторный запрос;
+- отмену запроса через `AbortController`;
+- защиту от race conditions и stale updates через `requestId`.
+
+```ts
+type FetchFunction<T> = (signal: AbortSignal) => Promise<T>;
+```
+
+---
+
+## 🛠 Технологический стек
+
+- **React 19**
+- **TypeScript**
+- **Vite**
+- **React Router 7**
+- **React Context API**
+- **CSS Modules**
+- **Vitest**
+- **React Testing Library**
+- **jsdom**
+- **ESLint**
+- **Vercel Analytics**
+
+---
+
+## ✅ TypeScript
+
+В проекте используется строгая TypeScript-конфигурация:
+
+- `strict: true`
+- `noImplicitAny: true`
+- `noUncheckedIndexedAccess: true`
+- `exactOptionalPropertyTypes: true`
+- `allowJs: false`
+- `noEmit: true`
+
+Внешние данные сначала имеют тип `unknown` и используются только после narrowing.
+
+---
+
+## 🧪 Тестирование
+
+Тестами покрыты:
+
+- валидаторы товаров;
+- валидаторы корзины;
+- API-сервис;
+- `CartContext`;
+- generic-хук `useFetch<T>`;
+- отмена запросов;
+- защита от stale data;
+- работа `loading` при конкурирующих запросах;
+- отображение каталога;
+- карточка товара;
+- восстановление корзины из `localStorage`;
+- добавление, удаление и изменение количества товаров;
+- расчёт общей стоимости.
+
+---
+
+## 📁 Структура проекта
+
+```text
 src/
 ├── api/
-│   └── products.js         # Логика сетевых запросов (FakeStoreAPI)
-├── components/             # Модульные компоненты приложения
-│   ├── CartItem/           # Элемент товара в корзине
-│   ├── ErrorPage/          # Компонент обработки 404
-│   ├── Footer/             # Подвал сайта
-│   ├── Layout/             # Обертка для основного контента
-│   ├── Navbar/             # Навигационная панель с счетчиком
-│   ├── ProductCard/        # Карточка товара в магазине
-│   ├── ProductCardSkeleton/# Skeleton-loading эффект
-│   ├── StatusMessage/      # Обработка ошибок загрузки (Shop)
-│   └── Toast/              # Уведомления об успехе
+│   ├── products.ts
+│   └── products.test.ts
+├── assets/
+├── components/
+│   ├── ErrorPage/
+│   ├── Footer/
+│   ├── Layout/
+│   ├── Navbar/
+│   └── StatusMessage/
 ├── context/
-│   └── CartContext.jsx     # Глобальное состояние корзины
+│   ├── CartContext.tsx
+│   └── CartContext.test.tsx
 ├── hooks/
-│   └── useFetch.js         # Кастомный хук для API запросов
+│   ├── useFetch.ts
+│   └── useFetch.test.tsx
 ├── pages/
-│   ├── Cart/               # Страница корзины
-│   ├── Home/               # Главная (Hero-секция)
-│   └── Shop/               # Страница каталога
+│   ├── Cart/
+│   │   ├── components/
+│   │   │   └── CartItem.tsx
+│   │   └── Cart.tsx
+│   ├── Home/
+│   │   └── Home.tsx
+│   └── Shop/
+│       ├── components/
+│       │   ├── ProductCard.tsx
+│       │   └── ProductCardSkeleton.tsx
+│       ├── Shop.tsx
+│       └── Shop.test.tsx
 ├── routes/
-│   └── routes.jsx          # Конфигурация React Router
-├── App.jsx                 # Корневой компонент
-├── index.css               # Глобальные стили и CSS-переменные
-└── main.jsx                # Точка входа
+│   └── routes.tsx
+├── styles/
+│   └── index.css
+├── tests/
+│   ├── fixtures.ts
+│   └── setup.ts
+├── types/
+│   ├── fetch.ts
+│   └── product.ts
+├── validators/
+│   ├── cart.ts
+│   ├── cart.test.ts
+│   ├── product.ts
+│   └── product.test.ts
+├── App.tsx
+├── main.tsx
+└── vite-env.d.ts
+```
 
-⚙️ Установка и запуск
+---
+
+## ⚙️ Установка и запуск
+
 Клонировать репозиторий:
 
-```Bash
-git clone [https://github.com/SAGOMADGE/shopping-cart.git](https://github.com/SAGOMADGE/shopping-cart.git)
-````
+```bash
+git clone https://github.com/SAGOMADGE/Shopping-Cart.git
+cd Shopping-Cart
+```
 
 Установить зависимости:
 
-```Bash
+```bash
 npm install
 ```
 
-Запустить режим разработки:
+Запустить development-сервер:
 
-```Bash
+```bash
 npm run dev
+```
+
+---
+
+## 🔍 Проверка проекта
+
+Проверить TypeScript:
+
+```bash
+npm run typecheck
+```
+
+Запустить ESLint:
+
+```bash
+npm run lint
 ```
 
 Запустить тесты:
 
-```Bash
-npm test
+```bash
+npm test -- --run
 ```
 
-🧠 Чему я научился в этом проекте
-Архитектура Hooks: Проектирование Custom Hooks для полного отделения бизнес-логики от UI-слоя.
+Собрать production-версию:
 
-Lifecycle Management: Работа с Cleanup functions в useEffect для корректной отмены асинхронных запросов и предотвращения утечек памяти.
+```bash
+npm run build
+```
 
-Advanced CSS: Глубокое понимание специфики Flexbox-позиционирования и использование CSS-переменных для создания консистентной дизайн-системы.
+Запустить все проверки последовательно:
 
-DevOps Basics: Настройка инфраструктуры деплоя и конфигурация серверных правил (SPA Rewrites) для корректной работы клиентского роутинга.
+```bash
+npm run typecheck
+npm run lint
+npm test -- --run
+npm run build
+```
+
+---
+
+## 🧠 Практические результаты
+
+Во время разработки проекта были отработаны:
+
+- миграция React-приложения с JavaScript на TypeScript;
+- проектирование generic custom hooks;
+- narrowing внешних данных;
+- user-defined type guards;
+- безопасная работа с `localStorage`;
+- управление глобальным состоянием через Context API;
+- предотвращение race conditions;
+- тестирование компонентов, Context, API и custom hooks;
+- настройка strict TypeScript и ESLint;
+- deployment React SPA на Vercel.
