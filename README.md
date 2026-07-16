@@ -12,9 +12,9 @@
 
 ### Desktop
 
-|                     Главная страница                      |                      Каталог товаров                      |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="src/assets/laptop screenshot1.jpg" width="400"> | <img src="src/assets/laptop screenshot2.jpg" width="400"> |
+|                Главная страница                |                      Каталог товаров                      |
+| :--------------------------------------------: | :-------------------------------------------------------: |
+| <img src="src/assets/laptop1.jpg" width="400"> | <img src="src/assets/laptop screenshot2.jpg" width="400"> |
 
 <details>
   <summary>Показать остальные desktop-экраны</summary>
