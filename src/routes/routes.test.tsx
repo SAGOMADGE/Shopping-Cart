@@ -3,10 +3,11 @@ import { render, screen } from '@testing-library/react';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
-import { createMemoryRouter, Route, RouterProvider } from 'react-router-dom';
+import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 
 import { CartProvider } from '@/context/CartContext';
 import { getAllProducts } from '@/api/products';
+import { createProduct } from '@/tests/fixtures';
 
 import { routes } from './routes';
 
@@ -37,7 +38,7 @@ describe('routes', () => {
   it('переходит с главной страницы в магазин', async () => {
     const user = userEvent.setup();
 
-    mockedGetAllProducts.mockResolvedValue([]);
+    mockedGetAllProducts.mockResolvedValue([createProduct()]);
 
     renderRouter('/');
 
@@ -71,7 +72,7 @@ describe('routes', () => {
   it('переходит со страницы ошибки в магазин', async () => {
     const user = userEvent.setup();
 
-    mockedGetAllProducts.mockResolvedValue([]);
+    mockedGetAllProducts.mockResolvedValue([createProduct()]);
 
     renderRouter('/invalid-url');
 
